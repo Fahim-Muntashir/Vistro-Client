@@ -12,6 +12,7 @@ module.exports = {
   settings: { react: { version: "18.2" } },
   plugins: ["react-refresh"],
   rules: {
+    "react/prop-types": "off",
     "react/no-unknown-property": ["error", { ignore: ["clip-rule"] }],
     "react-refresh/only-export-components": [
       "warn",
