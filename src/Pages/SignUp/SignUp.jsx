@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 // import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/authProviders";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const SignUp = () => {
   const {
     register,
@@ -24,13 +25,7 @@ const SignUp = () => {
         .then(() => {
           console.log("user profile info updated");
           reset();
-          // Swal.fire({
-          //   position: "top-end",
-          //   icon: "success",
-          //   title: "User created successfully.",
-          //   showConfirmButton: false,
-          //   timer: 1500,
-          // });
+          toast("Wow Your Account Created Succesfully!");
           navigate("/");
         })
         .catch((error) => console.log(error));
@@ -39,6 +34,7 @@ const SignUp = () => {
 
   return (
     <>
+      <ToastContainer></ToastContainer>
       <Helmet>
         <title>Bistro Boss | Sign Up</title>
       </Helmet>

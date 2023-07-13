@@ -6,8 +6,8 @@ import {
 } from "react-simple-captcha";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-// import Swal from "sweetalert2";
-// import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../providers/authProviders";
 
 const Login = () => {
@@ -31,15 +31,7 @@ const Login = () => {
     signIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
-      //   Swal.fire({
-      //     title: "User Login Successful.",
-      //     showClass: {
-      //       popup: "animate__animated animate__fadeInDown",
-      //     },
-      //     hideClass: {
-      //       popup: "animate__animated animate__fadeOutUp",
-      //     },
-      //   });
+      toast("Wow so easy!");
       navigate(from, { replace: true });
     });
   };
@@ -109,10 +101,9 @@ const Login = () => {
                   className="input input-bordered"
                 />
               </div>
-              {/* TODO: make button disabled for captcha */}
               <div className="form-control mt-6">
                 <input
-                  disabled={false}
+                  disabled={disabled}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
@@ -124,8 +115,8 @@ const Login = () => {
                 New Here? <Link to="/signup">Create an account</Link>{" "}
               </small>
             </p>
-            {/* <SocialLogin></SocialLogin> */}
           </div>
+          <ToastContainer />
         </div>
       </div>
     </>
