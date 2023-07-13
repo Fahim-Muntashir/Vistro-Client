@@ -1,7 +1,13 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Pages/Shared/Footer";
 import Navbar from "../Pages/Shared/Navbar";
-
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 const Main = () => {
   const location = useLocation();
   console.log(location);
